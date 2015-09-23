@@ -1,0 +1,520 @@
+###############################################################################
+#
+# IAR ELF Linker V7.40.2.8542/W32 for ARM                 17/May/2015  18:31:32
+# Copyright 2007-2015 IAR Systems AB.
+#
+#    Output file  =  KL46_CAR_Flash.out
+#    Map file     =  D:/KL46/KL46_CAR/Flash/KL46_CAR.map
+#    Command line =  
+#        Sources\Chip_driver\ADC\adc.o Sources\Chip_driver\CMP\cmp.o
+#        Sources\Application\Control\control.o Sources\Chip_start\IAR\crt0.o
+#        Sources\Chip_driver\DAC\dac.o Sources\Application\Dataout\dataout.o
+#        Sources\Chip_driver\DMA\dma.o Sources\Chip_driver\FTFA\ftfa.o
+#        Sources\Chip_driver\GPIO\gpio.o Sources\Chip_driver\I2C\i2c.o
+#        Sources\Application\Init\init.o Sources\Chip_driver\LPTMR\lptmr.o
+#        Sources\Application\main.o Sources\Chip_driver\MCG\mcg.o
+#        Sources\Chip_driver\PIT\pit.o
+#        Sources\Application\Control\pit_control.o
+#        Sources\Chip_driver\PORT\port.o Sources\Application\printf\printf.o
+#        Sources\Chip_driver\RTC\rtc.o Sources\Chip_driver\SPI\spi.o
+#        Sources\Board_driver\SSD130x\SSD130x.o Sources\Chip_start\start.o
+#        Sources\Chip_start\sysinit.o Sources\Chip_driver\TPM\tpm.o
+#        Sources\Application\TSLCCD\tslccd.o Sources\Chip_driver\UART\uart.o
+#        Sources\Chip_start\vectors.o Sources\Chip_driver\WDOG\wdog.o -o
+#        KL46_CAR_Flash.out --config
+#        D:/KL46/KL46_CAR/Sources/LinkerFiles/IAR/MKL46Z256_Flash.icf
+#        --no_wrap_diagnostics --map D:/KL46/KL46_CAR/Flash/KL46_CAR.map
+#        --log_file D:/KL46/KL46_CAR/Flash/KL46_CAR.log --semihosting
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"A2":  place at 0x00000410 { ro section .noinit };
+"P1":  place in [from 0x00000000 to 0x08000000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1ffff410 to 0x20006000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                        0x410
+  .intvec              const    0x00000000   0x410  vectors.o [24]
+                              - 0x00000410   0x410
+
+"A2":                                         0x18
+  .noinit              ro code  0x00000410    0x18  crt0.o [25]
+                              - 0x00000428    0x18
+
+"P1":                                       0x1ee4
+  .data_init                    0x00000428   0x524  <Block>
+    Initializer bytes  const    0x00000428   0x524  <for .data-1>
+  .text                ro code  0x0000094c   0x3d8  tpm.o [21]
+  .text                ro code  0x00000d24    0xe0  I32DivModFast.o [29]
+  .text                ro code  0x00000e04    0xa4  port.o [18]
+  .text                ro code  0x00000ea8     0x2  IntDivZer.o [29]
+  .text                ro code  0x00000eaa    0x2a  zero_init3.o [29]
+  .text                ro code  0x00000ed4   0x3b8  uart.o [22]
+  .text                ro code  0x0000128c   0x240  mcg.o [16]
+  .text                ro code  0x000014cc    0x34  start.o [24]
+  .text                ro code  0x00001500     0xc  wdog.o [23]
+  .text                ro code  0x0000150c    0xc4  sysinit.o [24]
+  .text                ro code  0x000015d0    0x30  main.o [1]
+  .text                ro code  0x00001600    0x90  init.o [4]
+  .text                ro code  0x00001690    0xcc  pit.o [17]
+  .text                ro code  0x0000175c   0x10c  tslccd.o [5]
+  .text                ro code  0x00001868   0x130  gpio.o [13]
+  .text                ro code  0x00001998   0x154  adc.o [8]
+  .text                ro code  0x00001aec   0x108  lptmr.o [15]
+  .text                ro code  0x00001bf4   0x1d8  SSD130x.o [7]
+  .text                ro code  0x00001dcc     0x2  printf.o [6]
+  .text                ro code  0x00001dce   0x120  FltAddSub.o [28]
+  .text                ro code  0x00001ef0    0xc0  control.o [2]
+  .text                ro code  0x00001fb0     0x8  abs.o [27]
+  .text                ro code  0x00001fb8    0x36  I32ToFlt.o [28]
+  .text                ro code  0x00001fee    0xb0  FltMul.o [28]
+  .text                ro code  0x000020a0    0x3a  FltToS32.o [28]
+  .text                ro code  0x000020dc    0x74  pit_control.o [2]
+  .text                ro code  0x00002150    0x6c  rtc.o [19]
+  .text                ro code  0x000021bc    0x48  cmp.o [9]
+  .text                ro code  0x00002204    0x2c  i2c.o [14]
+  .text                ro code  0x00002230    0x2c  spi.o [20]
+  .text                ro code  0x0000225c    0x28  data_init.o [29]
+  .iar.init_table      const    0x00002284    0x10  - Linker created -
+  .text                ro code  0x00002294    0x1c  dma.o [11]
+  .text                ro code  0x000022b0    0x1a  cmain.o [29]
+  .text                ro code  0x000022ca     0x4  low_level_init.o [27]
+  .text                ro code  0x000022ce     0x8  exit.o [27]
+  .text                ro code  0x000022d8     0xa  cexit.o [29]
+  .text                ro code  0x000022e4    0x14  exit.o [30]
+  .text                ro code  0x000022f8     0xc  cstartup_M.o [29]
+  .text                ro code  0x00002304     0x8  vectors.o [24]
+  .rodata              const    0x0000230c     0x0  zero_init3.o [29]
+  CodeRelocate                  0x0000230c     0x0  <Block>
+                              - 0x0000230c  0x1ee4
+
+"P2":                                        0xba8
+  .data                         0x1ffff410   0x524  <Block>
+    .data-1                     0x1ffff410   0x524  <Init block>
+      .data            inited   0x1ffff410     0x8  adc.o [8]
+      .data            inited   0x1ffff418     0xc  cmp.o [9]
+      .data            inited   0x1ffff424    0x18  dma.o [11]
+      .data            inited   0x1ffff43c    0x14  gpio.o [13]
+      .data            inited   0x1ffff450    0x10  i2c.o [14]
+      .data            inited   0x1ffff460   0x454  init.o [4]
+      .data            inited   0x1ffff8b4     0x8  lptmr.o [15]
+      .data            inited   0x1ffff8bc     0x1  main.o [1]
+      .data            inited   0x1ffff8c0    0x20  mcg.o [16]
+      .data            inited   0x1ffff8e0    0x14  port.o [18]
+      .data            inited   0x1ffff8f4    0x10  spi.o [20]
+      .data            inited   0x1ffff904    0x24  tpm.o [21]
+      .data            inited   0x1ffff928     0xc  uart.o [22]
+  .bss                          0x1ffff934   0x684  <Block>
+    .bss               zero     0x1ffff934    0x24  control.o [2]
+    .bss               zero     0x1ffff958     0x8  pit.o [17]
+    .bss               zero     0x1ffff960     0x8  pit_control.o [2]
+    .bss               zero     0x1ffff968   0x280  port.o [18]
+    .bss               zero     0x1ffffbe8    0x10  rtc.o [19]
+    .bss               zero     0x1ffffbf8     0x8  SSD130x.o [7]
+    .bss               zero     0x1ffffc00    0x6c  tpm.o [21]
+    .bss               zero     0x1ffffc6c   0x1a0  tslccd.o [5]
+    .bss               zero     0x1ffffe0c   0x1a0  tslccd.o [5]
+    .bss               zero     0x1fffffac     0xc  uart.o [22]
+  CodeRelocateRam               0x1fffffb8     0x0  <Block>
+                              - 0x1fffffb8   0xba8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x684:
+          0x1ffff934  0x684
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+D:\KL46\KL46_CAR\Flash\Sources\Application: [1]
+    main.o                 48        1        1
+    -------------------------------------------
+    Total:                 48        1        1
+
+D:\KL46\KL46_CAR\Flash\Sources\Application\Control: [2]
+    control.o             192                36
+    pit_control.o         116                 8
+    -------------------------------------------
+    Total:                308                44
+
+D:\KL46\KL46_CAR\Flash\Sources\Application\Dataout: [3]
+    -------------------------------------------
+    Total:
+
+D:\KL46\KL46_CAR\Flash\Sources\Application\Init: [4]
+    init.o                144    1 108    1 108
+    -------------------------------------------
+    Total:                144    1 108    1 108
+
+D:\KL46\KL46_CAR\Flash\Sources\Application\TSLCCD: [5]
+    tslccd.o              268               832
+    -------------------------------------------
+    Total:                268               832
+
+D:\KL46\KL46_CAR\Flash\Sources\Application\printf: [6]
+    printf.o                2
+    -------------------------------------------
+    Total:                  2
+
+D:\KL46\KL46_CAR\Flash\Sources\Board_driver\SSD130x: [7]
+    SSD130x.o             472                 8
+    -------------------------------------------
+    Total:                472                 8
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\ADC: [8]
+    adc.o                 340        8        8
+    -------------------------------------------
+    Total:                340        8        8
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\CMP: [9]
+    cmp.o                  72       12       12
+    -------------------------------------------
+    Total:                 72       12       12
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\DAC: [10]
+    -------------------------------------------
+    Total:
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\DMA: [11]
+    dma.o                  28       24       24
+    -------------------------------------------
+    Total:                 28       24       24
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\FTFA: [12]
+    -------------------------------------------
+    Total:
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\GPIO: [13]
+    gpio.o                304       20       20
+    -------------------------------------------
+    Total:                304       20       20
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\I2C: [14]
+    i2c.o                  44       16       16
+    -------------------------------------------
+    Total:                 44       16       16
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\LPTMR: [15]
+    lptmr.o               264        8        8
+    -------------------------------------------
+    Total:                264        8        8
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\MCG: [16]
+    mcg.o                 576       35       32
+    -------------------------------------------
+    Total:                576       35       32
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\PIT: [17]
+    pit.o                 204                 8
+    -------------------------------------------
+    Total:                204                 8
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\PORT: [18]
+    port.o                164       20      660
+    -------------------------------------------
+    Total:                164       20      660
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\RTC: [19]
+    rtc.o                 108                16
+    -------------------------------------------
+    Total:                108                16
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\SPI: [20]
+    spi.o                  44       16       16
+    -------------------------------------------
+    Total:                 44       16       16
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\TPM: [21]
+    tpm.o                 984       36      144
+    -------------------------------------------
+    Total:                984       36      144
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\UART: [22]
+    uart.o                952       12       24
+    -------------------------------------------
+    Total:                952       12       24
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\WDOG: [23]
+    wdog.o                 12
+    -------------------------------------------
+    Total:                 12
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_start: [24]
+    start.o                52
+    sysinit.o             196
+    vectors.o               8    1 040
+    -------------------------------------------
+    Total:                256    1 040
+
+D:\KL46\KL46_CAR\Flash\Sources\Chip_start\IAR: [25]
+    crt0.o                 24
+    -------------------------------------------
+    Total:                 24
+
+command line: [26]
+    -------------------------------------------
+    Total:
+
+dl6M_tln.a: [27]
+    abs.o                   8
+    exit.o                  8
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                 20
+
+m6M_tl.a: [28]
+    FltAddSub.o           288
+    FltMul.o              176
+    FltToS32.o             58
+    I32ToFlt.o             54
+    -------------------------------------------
+    Total:                576
+
+rt6M_tl.a: [29]
+    I32DivModFast.o       224
+    IntDivZer.o             2
+    cexit.o                10
+    cmain.o                26
+    cstartup_M.o           12
+    data_init.o            40
+    zero_init3.o           42
+    -------------------------------------------
+    Total:                356
+
+shb_l.a: [30]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                   10                 3
+    Linker created                  16
+-----------------------------------------------
+    Grand Total:        6 600    2 372    2 984
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1ffff934          --   Gb  - Linker created -
+.bss$$Limit             0x1fffffb8          --   Gb  - Linker created -
+.data$$Base             0x1ffff410          --   Gb  - Linker created -
+.data$$Limit            0x1ffff934          --   Gb  - Linker created -
+.data_init$$Base        0x00000428          --   Gb  - Linker created -
+.data_init$$Limit       0x0000094c          --   Gb  - Linker created -
+.iar.init_table$$Base   0x00002284          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00002294          --   Gb  - Linker created -
+?main                   0x000022b1         Code  Gb  cmain.o [29]
+ADC_IRQHandler          0x00001ac1   0x16  Code  Gb  adc.o [8]
+ADC_ISR                 0x1ffff414    0x4  Data  Lc  adc.o [8]
+ADC_Init                0x00001999   0xd8  Code  Gb  adc.o [8]
+ADC_Read                0x00001a71   0x50  Code  Gb  adc.o [8]
+ADCx                    0x1ffff410    0x4  Data  Gb  adc.o [8]
+CMP_IRQHandler          0x000021bd   0x3c  Code  Gb  cmp.o [9]
+CMP_ISR                 0x1ffff418    0x8  Data  Lc  cmp.o [9]
+CMPx                    0x1ffff420    0x4  Data  Gb  cmp.o [9]
+CodeRelocate$$Base      0x0000230c          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x0000230c          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fffffb8          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fffffb8          --   Gb  - Linker created -
+Coder_Pin_Struct        0x1ffff768    0xc  Data  Lc  init.o [4]
+DEBUG_UART_Struct       0x1ffff5a0    0x8  Data  Lc  init.o [4]
+DMAMUXx                 0x1ffff424    0x4  Data  Gb  dma.o [11]
+DMA_IRQHandler          0x00002295   0x14  Code  Gb  dma.o [11]
+DMA_ISR                 0x1ffff42c   0x10  Data  Lc  dma.o [11]
+DMAx                    0x1ffff428    0x4  Data  Gb  dma.o [11]
+D_Direct_Control_D      0x1ffff951    0x1  Data  Gb  control.o [2]
+D_Direct_Control_P      0x1ffff950    0x1  Data  Gb  control.o [2]
+Debug_Pin_Struct        0x1ffff814   0xa0  Data  Lc  init.o [4]
+Direct                  0x1ffff934   0x1c  Data  Gb  control.o [2]
+Direct_Control          0x00001ef1   0x9a  Code  Gb  control.o [2]
+Display_CLS             0x00001dcd    0x2  Code  Gb  printf.o [6]
+GPIO_Struct_Init        0x000018b5   0x48  Code  Gb  gpio.o [13]
+GPIO_bit_Clr            0x000018fd   0x32  Code  Gb  gpio.o [13]
+GPIO_bit_Init           0x00001869   0x4c  Code  Gb  gpio.o [13]
+GPIO_bit_Set            0x0000192f   0x32  Code  Gb  gpio.o [13]
+GPIO_bit_Toggle         0x00001961   0x32  Code  Gb  gpio.o [13]
+GPIOx                   0x1ffff43c   0x14  Data  Gb  gpio.o [13]
+GTime                   0x1ffff960    0x8  Data  Gb  pit_control.o [2]
+I2C_IRQHandler          0x00002205   0x24  Code  Gb  i2c.o [14]
+I2C_ISR                 0x1ffff458    0x8  Data  Lc  i2c.o [14]
+I2Cx                    0x1ffff450    0x8  Data  Gb  i2c.o [14]
+LPTMR_IRQHandler        0x00001bc1   0x16  Code  Gb  lptmr.o [15]
+LPTMR_ISR               0x1ffff8b8    0x4  Data  Lc  lptmr.o [15]
+LPTMR_Pulse_Init        0x00001afb   0xc0  Code  Gb  lptmr.o [15]
+LPTMRx                  0x1ffff8b4    0x4  Data  Gb  lptmr.o [15]
+MCG_Init                0x0000128d   0x66  Code  Gb  mcg.o [16]
+MCULED_Pin_Struct       0x1ffff460   0xa0  Data  Lc  init.o [4]
+MOTOR_PWM_Struct        0x1ffff6f0   0x3c  Data  Lc  init.o [4]
+MOTOR_Pin_Struct        0x1ffff650   0xa0  Data  Lc  init.o [4]
+NVIC_EnableIRQ          0x00001aed    0xe  Code  Lc  lptmr.o [15]
+NVIC_EnableIRQ          0x00001691    0xe  Code  Lc  pit.o [17]
+PIT_Control             0x000020dd   0x74  Code  Gb  pit_control.o [2]
+PIT_Enable              0x000016e3   0x2c  Code  Gb  pit.o [17]
+PIT_IRQHandler          0x0000170f   0x2e  Code  Gb  pit.o [17]
+PIT_ISR                 0x1ffff958    0x8  Data  Lc  pit.o [17]
+PIT_Init                0x0000169f   0x44  Code  Gb  pit.o [17]
+PLL_Init                0x000012f5  0x14e  Code  Gb  mcg.o [16]
+PLL_Para                0x0000145c   0x70  Data  Lc  mcg.o [16]
+PORT_IRQHandler         0x00000e53   0x48  Code  Gb  port.o [18]
+PORT_ISR                0x1ffff968  0x280  Data  Lc  port.o [18]
+PORT_MUX_Get            0x00000e05   0x1e  Code  Gb  port.o [18]
+PORT_bit_Init           0x00000e23   0x30  Code  Gb  port.o [18]
+PORTx                   0x1ffff8e0   0x14  Data  Gb  port.o [18]
+RTC_Alarm_Disable       0x00002151   0x10  Code  Gb  rtc.o [19]
+RTC_IRQHandler          0x00002177   0x28  Code  Gb  rtc.o [19]
+RTC_ISR                 0x1ffffbe8   0x10  Data  Lc  rtc.o [19]
+RTC_Seconds_IRQHandler  0x0000219f    0xa  Code  Gb  rtc.o [19]
+RTC_Write               0x00002161   0x16  Code  Gb  rtc.o [19]
+Region$$Table$$Base     0x00002284          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00002294          --   Gb  - Linker created -
+SPI_IRQHandler          0x00002231   0x24  Code  Gb  spi.o [20]
+SPI_ISR                 0x1ffff8fc    0x8  Data  Lc  spi.o [20]
+SPIx                    0x1ffff8f4    0x8  Data  Gb  spi.o [20]
+SSD130x_CLS             0x00001cdb    0xa  Code  Gb  SSD130x.o [7]
+SSD130x_CurrentColumn   0x1ffffbfc    0x4  Data  Gb  SSD130x.o [7]
+SSD130x_CurrentLine     0x1ffffbf8    0x4  Data  Gb  SSD130x.o [7]
+SSD130x_FillPixel       0x00001cb9   0x22  Code  Gb  SSD130x.o [7]
+SSD130x_Init            0x00001ce5   0xd8  Code  Gb  SSD130x.o [7]
+SSD130x_Pin_Struct      0x1ffff774   0xa0  Data  Lc  init.o [4]
+SSD130x_SetPos          0x00001c2f   0x30  Code  Gb  SSD130x.o [7]
+SSD130x_WriteCmd        0x00001bf5   0x3a  Code  Lc  SSD130x.o [7]
+SSD130x_WriteDat        0x00001c5f   0x5a  Code  Gb  SSD130x.o [7]
+STEER_PWM_Struct        0x1ffff72c   0x3c  Data  Lc  init.o [4]
+SWITCH_Pin_Struct       0x1ffff500   0xa0  Data  Lc  init.o [4]
+Start_Init              0x00001601   0x8a  Code  Gb  init.o [4]
+Steer_Control_Out       0x00001f8b    0xe  Code  Gb  control.o [2]
+Steer_Out_PWM           0x1ffff954    0x4  Data  Gb  control.o [2]
+TPM_CH_Init             0x00000a15  0x1a6  Code  Gb  tpm.o [21]
+TPM_IRQHandler          0x00000ca1   0x74  Code  Gb  tpm.o [21]
+TPM_ISR                 0x1ffffc00   0x6c  Data  Lc  tpm.o [21]
+TPM_Init                0x0000094d   0xb6  Code  Gb  tpm.o [21]
+TPM_OC_Change           0x00000bff   0x1c  Code  Gb  tpm.o [21]
+TPM_PWM_Change          0x00000bc1   0x3e  Code  Gb  tpm.o [21]
+TPM_Struct_Init         0x00000c1b   0x5c  Code  Gb  tpm.o [21]
+TPM_UsedFreq            0x1ffff91c    0xc  Data  Gb  tpm.o [21]
+TPM_UsedMod             0x1ffff910    0xc  Data  Gb  tpm.o [21]
+TPMx                    0x1ffff904    0xc  Data  Gb  tpm.o [21]
+TSL_ADC_Struct          0x1ffff5a8    0x8  Data  Lc  init.o [4]
+TSL_Dly_clk             0x0000175d    0x6  Code  Lc  tslccd.o [5]
+TSL_EXPOSURE_TIME       0x1ffff8bc    0x1  Data  Gb  main.o [1]
+TSL_Get                 0x00001765   0xe2  Code  Gb  tslccd.o [5]
+TSL_Pin_Struct          0x1ffff5b0   0xa0  Data  Lc  init.o [4]
+UART_IRQHandler         0x00001235   0x46  Code  Gb  uart.o [22]
+UART_Init               0x00000ed5  0x2e6  Code  Gb  uart.o [22]
+UART_R_ISR              0x1fffffac    0xc  Data  Lc  uart.o [22]
+UARTx                   0x1ffff928    0xc  Data  Gb  uart.o [22]
+WDOG_Disable            0x00001501    0x8  Code  Gb  wdog.o [23]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x20005ff8          --   Gb  command line/config [26]
+__VECTOR_RAM {Abs}      0x1ffff000          --   Gb  command line/config [26]
+__VECTOR_TABLE {Abs}    0x00000000          --   Gb  command line/config [26]
+__aeabi_f2iz            0x000020a1         Code  Gb  FltToS32.o [28]
+__aeabi_fadd            0x00001dcf         Code  Gb  FltAddSub.o [28]
+__aeabi_fmul            0x00001fef         Code  Gb  FltMul.o [28]
+__aeabi_fsub            0x00001e3f         Code  Gb  FltAddSub.o [28]
+__aeabi_i2f             0x00001fb9         Code  Gb  I32ToFlt.o [28]
+__aeabi_idiv            0x00000d51         Code  Gb  I32DivModFast.o [29]
+__aeabi_idiv0           0x00000ea9         Code  Gb  IntDivZer.o [29]
+__aeabi_idivmod         0x00000d51         Code  Gb  I32DivModFast.o [29]
+__aeabi_ui2f            0x00001fd1         Code  Gb  I32ToFlt.o [28]
+__aeabi_uidiv           0x00000d57         Code  Gb  I32DivModFast.o [29]
+__aeabi_uidivmod        0x00000d57         Code  Gb  I32DivModFast.o [29]
+__cmain                 0x000022b1         Code  Gb  cmain.o [29]
+__exit                  0x000022e5   0x14  Code  Gb  exit.o [30]
+__iar_data_init3        0x0000225d   0x28  Code  Gb  data_init.o [29]
+__iar_program_start     0x000022f9         Code  Gb  cstartup_M.o [29]
+__iar_ui2f              0x00001fd5         Code  Gb  I32ToFlt.o [28]
+__iar_zero_init3        0x00000eab   0x2a  Code  Gb  zero_init3.o [29]
+__low_level_init        0x000022cb    0x4  Code  Gb  low_level_init.o [27]
+__startup               0x00000411         Code  Gb  crt0.o [25]
+__vector_table          0x00000000  0x410  Data  Gb  vectors.o [24]
+_call_main              0x000022bd         Code  Gb  cmain.o [29]
+_exit                   0x000022d9         Code  Gb  cexit.o [29]
+_main                   0x000022c7         Code  Gb  cmain.o [29]
+abs                     0x00001fb1    0x8  Code  Gb  abs.o [27]
+bus_clk_hz              0x1ffff8d8    0x4  Data  Gb  mcg.o [16]
+bus_clk_khz             0x1ffff8d4    0x4  Data  Gb  mcg.o [16]
+bus_clk_mhz             0x1ffff8d0    0x4  Data  Gb  mcg.o [16]
+common_startup          0x0000150d   0x6e  Code  Gb  sysinit.o [24]
+core_clk_hz             0x1ffff8cc    0x4  Data  Gb  mcg.o [16]
+core_clk_khz            0x1ffff8c8    0x4  Data  Gb  mcg.o [16]
+core_clk_mhz            0x1ffff8c4    0x4  Data  Gb  mcg.o [16]
+default_isr             0x00002305    0x8  Code  Gb  vectors.o [24]
+exit                    0x000022cf    0x8  Code  Gb  exit.o [27]
+main                    0x000015d1   0x20  Code  Gb  main.o [1]
+mcg_clk_mhz             0x1ffff8c0    0x4  Data  Gb  mcg.o [16]
+peri_clk_hz             0x1ffff8dc    0x4  Data  Gb  mcg.o [16]
+start                   0x000014cd   0x14  Code  Gb  start.o [24]
+stop                    0x000014e1    0xe  Code  Gb  start.o [24]
+sysinit                 0x0000157b   0x26  Code  Gb  sysinit.o [24]
+tslBack                 0x1ffffe0c  0x1a0  Data  Gb  tslccd.o [5]
+tslFore                 0x1ffffc6c  0x1a0  Data  Gb  tslccd.o [5]
+write_vtor              0x000014f1    0x6  Code  Gb  start.o [24]
+
+
+[1] = D:\KL46\KL46_CAR\Flash\Sources\Application
+[2] = D:\KL46\KL46_CAR\Flash\Sources\Application\Control
+[3] = D:\KL46\KL46_CAR\Flash\Sources\Application\Dataout
+[4] = D:\KL46\KL46_CAR\Flash\Sources\Application\Init
+[5] = D:\KL46\KL46_CAR\Flash\Sources\Application\TSLCCD
+[6] = D:\KL46\KL46_CAR\Flash\Sources\Application\printf
+[7] = D:\KL46\KL46_CAR\Flash\Sources\Board_driver\SSD130x
+[8] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\ADC
+[9] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\CMP
+[10] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\DAC
+[11] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\DMA
+[12] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\FTFA
+[13] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\GPIO
+[14] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\I2C
+[15] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\LPTMR
+[16] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\MCG
+[17] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\PIT
+[18] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\PORT
+[19] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\RTC
+[20] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\SPI
+[21] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\TPM
+[22] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\UART
+[23] = D:\KL46\KL46_CAR\Flash\Sources\Chip_driver\WDOG
+[24] = D:\KL46\KL46_CAR\Flash\Sources\Chip_start
+[25] = D:\KL46\KL46_CAR\Flash\Sources\Chip_start\IAR
+[26] = command line
+[27] = dl6M_tln.a
+[28] = m6M_tl.a
+[29] = rt6M_tl.a
+[30] = shb_l.a
+
+  6 600 bytes of readonly  code memory
+  2 372 bytes of readonly  data memory
+  2 984 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

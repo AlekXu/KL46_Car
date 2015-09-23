@@ -1,0 +1,59 @@
+###############################################################################
+#                                                                             #
+#     IAR Assembler V7.10.3.6832/W32 for ARM 22/Jun/2014  15:27:30            #
+#     Copyright 1999-2014 IAR Systems AB.                                     #
+#                                                                             #
+#           Source file   =  H:\KL46_CAR\Sources\Chip_start\IAR\crt0.s        #
+#           List file     =  H:\KL46_CAR\RAM\crt0.lst                         #
+#           Object file   =  H:\KL46_CAR\RAM\Sources\Chip_start\IAR\crt0.o    #
+#           Command line  =  ..\Sources\Chip_start\IAR\crt0.s -o              #
+#                            Sources\Chip_start\IAR\crt0.o --cpu Cortex-M0+   #
+#                            --fpu None -s+ -r -L                             #
+#                                                                             #
+###############################################################################
+
+    1                           /*
+    2                            * File:        crt0.s
+    3                            * Purpose:     Lowest level routines for
+                                 Kinetis L Family.
+    4                            *
+    5                            * Notes:       
+    6                            *
+    7                            */
+    8                           
+    9                           
+   10                           ;         AREA   Crt0, CODE, READONLY      ;
+                                 name this block of code
+   11                             SECTION .noinit : CODE
+   12                           
+   13                                   EXPORT  __startup
+   14                           __startup
+   15    00000000 0020                  LDR     r0,=0                   ;
+                                                 Initialize the GPRs
+   16    00000002 0021                  LDR     r1,=0
+   17    00000004 0022                  LDR     r2,=0
+   18    00000006 0023                  LDR     r3,=0
+   19    00000008 0024                  LDR     r4,=0
+   20    0000000A 0025                  LDR     r5,=0
+   21    0000000C 0026                  LDR     r6,=0
+   22    0000000E 0027                  LDR     r7,=0
+   23                           
+   24    00000010 62B6                  CPSIE   i                       ;
+                                                 Unmask interrupts
+   25                                   import start
+   26    00000012 ........              BL      start                  ; call
+                                                 the C code
+   27                           __done
+   28    00000016 FEE7                  B       __done
+   29                           
+   30                                   END
+##############################
+#           CRC:0            #
+#        Errors:   0         #
+#        Warnings: 0         #
+#         Bytes: 24          #
+##############################
+
+
+
+
