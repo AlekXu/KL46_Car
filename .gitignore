@@ -1,0 +1,7 @@
+#此为注释——将被Git忽略
+*.[oa]
+*~
+KL46_Car/Flash/
+KL46_Car/Ram/
+
+
