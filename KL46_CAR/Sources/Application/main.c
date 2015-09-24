@@ -75,21 +75,6 @@ int main(void)
         {
         	TSL_Get();
 
-//        	TSL_Voltage_Filter();
-//
-//        	TSL_Check();
-//
-//        	TSL_Control();
-//
-//        	TSL_outData();
-//
-//        	TSL_LCD_Display();
-//
-//        	//UART_SendStr(&DEBUG_UART_Struct,"hello world!");
-//
-//        	GTime.uTSLCount = 0;
-
-        		//CalculateExposureTime();
         }
 
     }
